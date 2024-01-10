@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         defaultColor = ContextCompat.getColor(this, R.color.txtColor)
+
         binding.btnColor.setOnClickListener {
             openColorPicker();
         }
@@ -28,12 +29,21 @@ class MainActivity : AppCompatActivity() {
         changeFontFamily()
         changeFontSize()
 
+        binding.btnOk.setOnClickListener {
+            btnSetText()
+        }
+
 
 
     }
 
-    private fun openColorPicker() {
+    private fun btnSetText() {
+        val userText = binding.etText.text.toString()
+        binding.txtChangeFont.setText(userText)
 
+    }
+
+    private fun openColorPicker() {
 
     }
 
