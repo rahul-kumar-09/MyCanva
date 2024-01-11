@@ -113,6 +113,15 @@
             android:layout_marginStart="20dp"
             android:text="Change color"/>
 
+        <Button
+            android:id="@+id/btn_undo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/btn_color"
+            android:layout_marginStart="20dp"
+            android:text="undo"/>
+
     </RelativeLayout>
 
 
