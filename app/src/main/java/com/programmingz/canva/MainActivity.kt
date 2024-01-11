@@ -24,23 +24,31 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //get Color Picker
         defaultColor = ContextCompat.getColor(this, R.color.white)
 
+        //Color Picker button
         binding.btnColor.setOnClickListener {
             openColorPicker();
         }
 
+        //Font style method
         changeFontFamily()
+
+        //Font size method
         changeFontSize()
 
+        // Ok button for edit new text
         binding.btnOk.setOnClickListener {
             btnSetText()
         }
 
+        //Undo button or clear screen button
         binding.btnUndo.setOnClickListener {
             binding.txtChangeFont.text = originalText
         }
 
+        //text view, visible on the top up screen
         binding.txtChangeFont.setOnClickListener {
             val i: Int = 1
             if (i == KeyEvent.KEYCODE_DEL) {
@@ -54,12 +62,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //ok button call to btnOk
     private fun btnSetText() {
         val userText = binding.etText.text.toString()
         binding.txtChangeFont.setText(userText)
 
     }
 
+    //open color picker
     private fun openColorPicker() {
         val colorPicker = AmbilWarnaDialog(this, defaultColor, object : AmbilWarnaDialog.OnAmbilWarnaListener {
             override fun onCancel(dialog: AmbilWarnaDialog?) {
@@ -77,6 +87,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //Change to Text size increase or Decrease
     private fun changeFontSize() {
         val fontSize: Array<String> = arrayOf("18", "10", "12", "15", "20", "22", "25", "30", "50")
         val arrayAdapterSize: ArrayAdapter<String> =
@@ -117,6 +128,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    //Change the font style
     private fun changeFontFamily() {
         val fontList: Array<String> = arrayOf(
             "Select Font Family",
